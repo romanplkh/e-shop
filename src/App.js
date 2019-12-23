@@ -2,17 +2,14 @@ import React from "react";
 import "./App.css";
 import { HomePage } from "./pages/homepage/homepage";
 import { Route, Switch } from "react-router-dom";
+import ShopPage from "./pages/shop/shop";
 
 function App() {
-  const BarbellsPage = () => {
-    return <div>Barbells</div>;
-  };
-
   return (
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/barbells" component={BarbellsPage} />
+        <Route path="/shop" component={ShopPage} />
       </Switch>
     </div>
   );
