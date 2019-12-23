@@ -6,7 +6,7 @@ import MainDisplayPanel from "../../components/main-display-panel/main-display-p
 
 export const HomePage = () => {
   return (
-    <Container className="w-100">
+    <Container fluid>
       <MainDisplayPanel />
     </Container>
   );

@@ -44,9 +44,13 @@ export default class MainDisplayPanel extends Component {
   }
   render() {
     return (
-      <Row className="mt-3 justify-content-center  align-items-center">
+      <Row className=" justify-content-around">
         {this.state.groups.map(({ id, ...groupProps }) => {
-          return <MenuItem key={id} {...groupProps} />;
+          return (
+            <Col md={6} xs={12} xl={4}>
+              <MenuItem key={id} {...groupProps} />
+            </Col>
+          );
         })}
       </Row>
     );
