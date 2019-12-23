@@ -9,7 +9,7 @@ export const PreviewItem = ({ id, name, price, imageUrl }) => {
       <Card.Img
         variant="top"
         src={imageUrl}
-        style={{ maxWidth: "100%", height: "280px" }}
+        style={{ maxWidth: "70%", height: "250px", margin: "0 auto" }}
       />
       <Card.Body>
         <Card.Title>{name}</Card.Title>

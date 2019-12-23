@@ -6,8 +6,8 @@ import Container from "react-bootstrap/Container";
 
 const PreviewList = ({ title, items }) => {
   return (
-    <Container fluid>
-      <h1 className="display-4">{title}</h1>
+    <Container fluid style={{ padding: "2%" }}>
+      <h1 className="display-4 mt-5 mb-2">{title}</h1>
       <Row className="justify-content-around">
         {items
           .filter((el, i) => i < 4)
