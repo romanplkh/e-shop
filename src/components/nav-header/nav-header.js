@@ -13,11 +13,14 @@ const NavHeader = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto"></Nav>
         <Nav className="mr-5">
+          <Link to="/" className="nav-link">
+            HOME
+          </Link>
           <Link to="/shop" className="nav-link">
             SHOP
           </Link>
-          <Link to="/shop" className="nav-link">
-            CONTACT
+          <Link to="/signin" className="nav-link">
+            LOGIN
           </Link>
         </Nav>
       </Navbar.Collapse>
