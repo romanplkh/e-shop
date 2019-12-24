@@ -1,5 +1,6 @@
 import React from "react";
 import Login from "../../components/login/login";
+import Register from "../../components/register/register";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -12,7 +13,7 @@ const Auth = () => {
           <Login />
         </Col>
         <Col md={6}>
-          <Login />
+          <Register />
         </Col>
       </Row>
     </Container>

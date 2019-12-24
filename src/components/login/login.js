@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
-import { FormInput } from "../form-input/form-input";
+import Row from "react-bootstrap/Row";
+import FormInput from "../form-input/form-input";
 import CustomButton from "../custom-button/custom-button";
+import { loginWithGoogle, firebaseAuth } from "../../firebase/firebase.helpers";
 
 export default class Login extends Component {
   constructor(props) {
@@ -13,10 +15,17 @@ export default class Login extends Component {
     };
   }
 
-  submitHandler = e => {
-    e.prevetnDefault();
+  submitHandler = async e => {
+    e.preventDefault();
 
-    this.setState({ email: "", password: "" });
+    const { email, password } = this.state;
+
+    try {
+      await firebaseAuth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   inputHandler = ({ target: { value, name } }) => {
@@ -50,9 +59,23 @@ export default class Login extends Component {
             required
           ></FormInput>
 
-          <CustomButton variant="warning" type="submit" className="float-right">
-            Log In
-          </CustomButton>
+          <Row className="justify-content-around align-items-start">
+            <CustomButton
+              variant="warning"
+              type="submit"
+              className="float-right"
+            >
+              Log In
+            </CustomButton>
+            <div>
+              <CustomButton variant="danger" onClick={loginWithGoogle}>
+                Log In with Google
+              </CustomButton>
+              <small className="d-block text-muted">
+                3rd part cookie must be enabled
+              </small>
+            </div>
+          </Row>
         </Form>
       </div>
     );
