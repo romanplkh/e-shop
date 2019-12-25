@@ -138,22 +138,9 @@ export default class Register extends Component {
             validationMsg="Confirm password is required"
             required
           ></FormInput>
-
-          <Row className="justify-content-around align-items-start">
-            <CustomButton
-              variant="warning"
-              type="submit"
-              className="float-right"
-            >
-              Register
-            </CustomButton>
-            <div>
-              <CustomButton variant="danger">Log In with Google</CustomButton>
-              <small className="d-block text-muted">
-                3rd part cookie must be enabled
-              </small>
-            </div>
-          </Row>
+          <CustomButton variant="warning" type="submit" className="float-right">
+            Register
+          </CustomButton>
         </Form>
       </div>
     );

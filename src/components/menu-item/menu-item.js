@@ -6,8 +6,6 @@ import { withRouter } from "react-router-dom";
 import "./menu-item.css";
 
 const MenuItem = ({ title, imageUrl, history, url, match }) => {
-  console.log(url);
-  console.log(match);
   return (
     /*  <div className="col-xl-6 col-lg-10 col-12"> */
     <Card

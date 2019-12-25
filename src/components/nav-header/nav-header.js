@@ -3,6 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { firebaseAuth } from "../../firebase/firebase.helpers";
+import { connect } from "react-redux";
 
 const NavHeader = ({ currentUser }) => {
   return (
@@ -39,4 +40,9 @@ const NavHeader = ({ currentUser }) => {
   );
 };
 
-export default NavHeader;
+//ACCESS STATE ROOT REDUCER
+const mapStateToProps = state => {
+  return { currentUser: state.user.currentUser };
+};
+
+export default connect(mapStateToProps)(NavHeader);
