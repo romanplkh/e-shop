@@ -1,11 +1,13 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import CartLabel from "../cart-label/cart-label";
+import CartMini from "../cart-mini/cart-mini";
 import { Link } from "react-router-dom";
 import { firebaseAuth } from "../../firebase/firebase.helpers";
 import { connect } from "react-redux";
 
-const NavHeader = ({ currentUser }) => {
+const NavHeader = ({ currentUser, cartDisplay }) => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Link to="/" className="nav navbar-brand">
@@ -34,15 +36,20 @@ const NavHeader = ({ currentUser }) => {
               LOGIN
             </Link>
           )}
+          <CartLabel />
         </Nav>
       </Navbar.Collapse>
+      {cartDisplay && <CartMini />}
     </Navbar>
   );
 };
 
 //ACCESS STATE ROOT REDUCER
 const mapStateToProps = state => {
-  return { currentUser: state.user.currentUser };
+  return {
+    currentUser: state.user.currentUser,
+    cartDisplay: state.cart.display
+  };
 };
 
 export default connect(mapStateToProps)(NavHeader);

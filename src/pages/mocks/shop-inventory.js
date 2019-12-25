@@ -43,34 +43,34 @@ export const inventory = [
            route: "dumbbells",
            items: [
              {
-               id: 1,
+               id: 6,
                name: "Urethane dumbbell",
                imageUrl:
                  "https://i.ibb.co/znpdKkz/Urethane-Covered-Dumbbell.jpg",
                price: 150
              },
              {
-               id: 2,
+               id: 7,
                name: "Hex dumbbell",
                imageUrl: "https://i.ibb.co/7WVtdNQ/Rubber-Hex-Dumbbell.jpg",
                price: 170
              },
              {
-               id: 3,
+               id: 8,
                name: "38 pounds dumbbell",
                imageUrl:
                  "https://i.ibb.co/2h1N9VT/Adjustable-Barbell-38-Pounds.jpg",
                price: 145
              },
              {
-               id: 4,
+               id: 9,
                name: "Adjustable Dumbbell Set",
                imageUrl:
                  "https://i.ibb.co/rmsrxdv/88lbs-Adjustable-Dumbbell-Set.jpg",
                price: 137
              },
              {
-               id: 5,
+               id: 10,
                name: "Adjustable rubbered Dumbbell Set",
                imageUrl:
                  "https://i.ibb.co/BjHJphD/110lbs-Adjustable-Dumbbell-Set.jpg",
@@ -84,31 +84,31 @@ export const inventory = [
            route: "kettlebelles",
            items: [
              {
-               id: 1,
+               id: 11,
                name: "Iron 80 pounds kettlebell",
                imageUrl: "https://i.ibb.co/X8mKrPy/Iron-Kettlebell.jpg",
                price: 220
              },
              {
-               id: 2,
+               id: 12,
                name: "Iron 4.5 pounds kettlebell",
                imageUrl: "https://i.ibb.co/k25nKN6/Cast-Iron-Kettlebells.jpg",
                price: 176
              },
              {
-               id: 3,
+               id: 13,
                name: " Iron 17.6 pounds kettlebell ",
                imageUrl: "https://i.ibb.co/K0qkFCv/Cast-Iron-Kettlebell.jpg",
                price: 198
              },
              {
-               id: 4,
+               id: 14,
                name: "Iron 13 pounds kettlebell",
                imageUrl: "https://i.ibb.co/7CTbgBQ/10-kg-Kettlebell.jpg",
                price: 204
              },
              {
-               id: 5,
+               id: 15,
                name: "60 pounds kettlebell",
                imageUrl:
                  "https://i.ibb.co/9hQpmxk/60lb-Cast-Iron-Kettlebell.jpg",
@@ -122,35 +122,35 @@ export const inventory = [
            route: "plates",
            items: [
              {
-               id: 1,
+               id: 16,
                name: "Olympic style iron palte",
                imageUrl:
                  "https://i.ibb.co/hVD7hgP/Olympic-Style-Iron-Weight.jpg",
                price: 164
              },
              {
-               id: 2,
+               id: 17,
                name: "Cardio Pump Plate",
                imageUrl:
                  "https://i.ibb.co/cg1GBk0/Cardio-Pump-Plate-2-5lbs.jpg",
                price: 164
              },
              {
-               id: 3,
+               id: 18,
                name: "Barbell palte",
                imageUrl:
                  "https://i.ibb.co/VvgrbYq/Barbell-Standard-Grip-Plate.jpg",
                price: 164
              },
              {
-               id: 4,
+               id: 19,
                name: "3 pounds palte",
                imageUrl:
                  "https://i.ibb.co/QQCkjMZ/Bumper-Technique-Plate-3-lb.jpg",
                price: 164
              },
              {
-               id: 5,
+               id: 20,
                name: "Barbell rubber coated palte",
                imageUrl:
                  "https://i.ibb.co/5cbpSn3/Barbell-Rubber-Coated-Weight-Plate.jpg",
@@ -164,34 +164,34 @@ export const inventory = [
            route: "mats",
            items: [
              {
-               id: 1,
+               id: 21,
                name: "High Density mat",
                imageUrl:
                  "https://i.ibb.co/qjyYKgd/High-Density-Exercise-Yoga.jpg",
                price: 70
              },
              {
-               id: 2,
+               id: 22,
                name: "Gymnastic  mat",
                imageUrl: "https://i.ibb.co/JFW26XC/Gymnastics-Mat-240-cm.jpg",
                price: 65
              },
              {
-               id: 3,
+               id: 23,
                name: "Shock Absorbing mat",
                imageUrl:
                  "https://i.ibb.co/Y08y122/Grey-Non-Slip-Shock-Absorbing.jpg",
                price: 80
              },
              {
-               id: 4,
+               id: 24,
                name: "All purpose mat",
                imageUrl:
                  "https://i.ibb.co/7Qb4P53/Go-Yoga-All-Purpose-High-Density.jpg",
                price: 90
              },
              {
-               id: 5,
+               id: 25,
                name: "Puzzle Exercise Mat",
                imageUrl:
                  "https://i.ibb.co/bdvSnwK/Balance-From-Puzzle-Exercise-Mat.jpg",

@@ -2,8 +2,12 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
+import CustomButton from "../custom-button/custom-button";
+import { connect } from "react-redux";
+import { addToCart } from "../../redux/cart/cart.actions";
 
-export const PreviewItem = ({ id, name, price, imageUrl }) => {
+const PreviewItem = ({ item, addItemToCart }) => {
+  const { id, name, price, imageUrl } = item;
   return (
     <Card>
       <Card.Img
@@ -19,9 +23,19 @@ export const PreviewItem = ({ id, name, price, imageUrl }) => {
         </Card.Text>
         <Row className="justify-content-between px-3">
           <h3 className="text-secondary font-weight-bold">CAD: {price} $</h3>
-          <Button variant="warning">Go somewhere</Button>
+          <CustomButton variant="warning" onClick={() => addItemToCart(item)}>
+            Add to Cart
+          </CustomButton>
         </Row>
       </Card.Body>
     </Card>
   );
 };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addItemToCart: item => dispatch(addToCart(item))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(PreviewItem);
