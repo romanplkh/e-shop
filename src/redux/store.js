@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./root-reducer";
+import { persistStore } from "redux-persist";
 
 //SETUP MIDDLEWARE
 
@@ -14,4 +15,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(...middlewares))
 ); //spread all middlewares
 
-export default store;
+//APPLY PERSIST-STORE
+const persistor = persistStore(store);
+
+export { store, persistor };
