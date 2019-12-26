@@ -1,4 +1,9 @@
-import { CART_TOGGLER, ADD_ITEM_TO_CART } from "./cart.types";
+import {
+  CART_TOGGLER,
+  ADD_ITEM_TO_CART,
+  REMOVE_ITEMS_FROM_CART,
+  REMOVE_ITEM_FROM_CART
+} from "./cart.types";
 
 const intitalState = {
   display: false,
@@ -38,6 +43,40 @@ const cartReducer = (state = intitalState, action) => {
       return {
         ...state,
         items: newCartItems
+      };
+
+    case REMOVE_ITEMS_FROM_CART:
+      return {
+        ...state,
+        items: state.items.filter(it => it.id !== action.payload.id)
+      };
+
+    case REMOVE_ITEM_FROM_CART:
+      let oldCart = [...state.items];
+      let newCart = [];
+
+      let foundCartItem = oldCart.find(
+        cartItem => cartItem.id === action.payload.id
+      );
+
+      if (foundCartItem && foundCartItem.quantity == 1) {
+        newCart = oldCart.filter(item => item.id !== foundCartItem.id);
+      } else {
+        newCart = oldCart.map(item => {
+          if (item.id === action.payload.id) {
+            return {
+              ...item,
+              quantity: item.quantity - 1
+            };
+          }
+
+          return { ...item };
+        });
+      }
+
+      return {
+        ...state,
+        items: newCart
       };
     default:
       return { ...state };
