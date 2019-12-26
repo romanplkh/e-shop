@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import { HomePage } from "./pages/homepage/homepage";
+import HomePage from "./pages/homepage/homepage";
+import CheckoutPage from "./pages/checkout/checkout";
 import { Route, Switch, Redirect } from "react-router-dom";
 import ShopPage from "./pages/shop/shop";
 import Navheader from "./components/nav-header/nav-header";
@@ -8,7 +9,6 @@ import Auth from "./pages/auth/auth";
 import { firebaseAuth, addUserProfile } from "./firebase/firebase.helpers";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
-import Login from "./components/login/login";
 
 class App extends Component {
   constructor(props) {
@@ -56,6 +56,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route
             exact
             path="/signin"

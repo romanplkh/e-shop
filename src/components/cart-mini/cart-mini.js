@@ -3,24 +3,42 @@ import CustomButton from "../custom-button/custom-button";
 import "./cart-mini.css";
 import { connect } from "react-redux";
 import CartItem from "../cart-item/cart-item";
+import { selectCartItems } from "../../redux/cart/cart.selectors";
+import { withRouter } from "react-router-dom";
+import { toggleCart } from "../../redux/cart/cart.actions";
 
-export const CartMini = ({ cart }) => {
+export const CartMini = ({ itemsInCart, history, dispatch }) => {
+  let itemsToDisplay;
+  if (itemsInCart.length > 0) {
+    itemsToDisplay = itemsInCart.map(item => {
+      return <CartItem {...item} key={item.id} />;
+    });
+  } else {
+    itemsToDisplay = (
+      <h3 class="d-flex align-self-center my-auto text-muted">Cart is empty</h3>
+    );
+  }
+
   return (
     <div className="cart-mini">
-      <div className="cart-items">
-        {cart.map(item => {
-          return <CartItem {...item} key={item.id} />;
-        })}
-      </div>
-      <CustomButton className="button">Go to Checkout</CustomButton>
+      <div className="cart-items">{itemsToDisplay}</div>
+      <CustomButton
+        className="button"
+        onClick={() => {
+          history.push("/checkout");
+          dispatch(toggleCart());
+        }}
+      >
+        Go to Checkout
+      </CustomButton>
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    cart: state.cart.items
+    itemsInCart: selectCartItems(state)
   };
 };
 
-export default connect(mapStateToProps)(CartMini);
+export default withRouter(connect(mapStateToProps)(CartMini));
