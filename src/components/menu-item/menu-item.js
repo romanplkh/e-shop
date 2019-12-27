@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import { withRouter } from "react-router-dom";
-import "./menu-item.css";
+
 
 const MenuItem = ({ title, imageUrl, history, url, match }) => {
   return (
