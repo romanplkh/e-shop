@@ -1,0 +1,12 @@
+button.StripeCheckout {
+  padding: 0.75em !important;
+  background: orange !important;
+}
+
+button span {
+  background: orange !important;
+  background-image: orange !important;
+  font-size: 1.2em !important;
+  border: none !important;
+  box-shadow: none !important;
+}

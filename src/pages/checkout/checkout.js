@@ -10,10 +10,11 @@ import {
   selectTotalItemsInCart
 } from "../../redux/cart/cart.selectors";
 import CheckoutItem from "../../components/checkout-item/checkout-item";
+import CheckoutButton from "../../components/checkout-button/checkout-button";
 
 export const CheckoutPage = ({ itemsInCart, total }) => {
   return (
-    <Container>
+    <Container className="mb-5">
       <h1 className="display-4">Checkout Page</h1>
       <Row>
         <Table responsive>
@@ -32,13 +33,23 @@ export const CheckoutPage = ({ itemsInCart, total }) => {
             })}
           </tbody>
         </Table>
-        TOTAL: {total}
-        {/* <Col md={3}>Product</Col>
-        <Col md={3}>Description</Col>
-        <Col md={3}>Quantity</Col>
-        <Col md={2}>Price</Col>
-        <Col md={1}>Remove</Col> */}
       </Row>
+      <Row className="justify-content-end border-top">
+        <h2 className="mt-3"> TOTAL: CAD$ {total}</h2>
+      </Row>
+      <Row className="justify-content-center">
+        <CheckoutButton price={total} />
+      </Row>
+      <div className="text-danger mt-5">
+        <p>
+          Payment is implemented for testing purposes only! Do not enter a valid
+          CC information. If you want to test payment processing use the
+          following credentials
+        </p>
+        <p>CC: 4242 4242 4242 4242 </p>
+        <p>CVV: Any 3 digits </p>
+        <p>EXP: Any future date</p>
+      </div>
     </Container>
   );
 };

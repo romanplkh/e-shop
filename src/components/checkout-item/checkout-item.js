@@ -31,7 +31,7 @@ const CheckoutItem = ({ cartItem, dispatch }) => {
           onClick={() => dispatch(addToCart(cartItem))}
         ></i>
       </td>
-      <td>{cartItem.price}</td>
+      <td>CAD$ {cartItem.price}</td>
       <td className="text-center">
         <i
           className="fa fa-times-circle control remove-control"

@@ -24,7 +24,7 @@ export const CartMini = ({ itemsInCart, history, dispatch }) => {
     <div className="cart-mini">
       <div className="cart-items">{itemsToDisplay}</div>
       <CustomButton
-        className="button"
+        className="btn btn-warning font-weight-bold"
         onClick={() => {
           history.push("/checkout");
           dispatch(toggleCart());

@@ -27,7 +27,7 @@ const PreviewItem = ({ item, addItemToCart }) => {
           bulk of the card's content.
         </Card.Text>
         <Row className="justify-content-between px-3">
-          <h3 className="text-secondary font-weight-bold">CAD: {price} $</h3>
+          <h3 className="text-secondary font-weight-bold">CAD$: {price} </h3>
           <CustomButton variant="warning" onClick={() => addItemToCart(item)}>
             Add to Cart
           </CustomButton>
