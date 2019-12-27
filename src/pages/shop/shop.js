@@ -1,26 +1,21 @@
-import React, { Component } from "react";
-import { inventory } from "../mocks/shop-inventory";
+import React from "react";
 import PreviewList from "../../components/preview-list/preview-list";
+import { connect } from "react-redux";
+import { selectShopInventory } from "../../redux/shop/shop-inventory.selectrors";
+import { createStructuredSelector } from "reselect";
 
-class Shop extends Component {
-  constructor(props) {
-    super(props);
+const Shop = ({ inventory }) => {
+  return (
+    <div>
+      {inventory.map(({ id, ...listItemDetails }) => {
+        return <PreviewList key={id} {...listItemDetails} />;
+      })}
+    </div>
+  );
+};
 
-    this.state = {
-      listItems: inventory
-    };
-  }
+const mapStateToProps = createStructuredSelector({
+  inventory: selectShopInventory
+});
 
-  render() {
-    const { listItems } = this.state;
-    return (
-      <div>
-        {listItems.map(({ id, ...listItemDetails }) => {
-          return <PreviewList key={id} {...listItemDetails} />;
-        })}
-      </div>
-    );
-  }
-}
-
-export default Shop;
+export default connect(mapStateToProps)(Shop);

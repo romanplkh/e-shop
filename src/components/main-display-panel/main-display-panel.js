@@ -2,57 +2,26 @@ import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import MenuItem from "../menu-item/menu-item";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectDisplayPanelGroup } from "../../redux/main-display-panel/main-display-panel.selectors";
 
-export default class MainDisplayPanel extends Component {
-  constructor() {
-    super();
+const mainDisplayPanel = ({ groups }) => {
+  return (
+    <Row className=" justify-content-around">
+      {groups.map(({ id, ...groupProps }) => {
+        return (
+          <Col key={id} md={6} xs={12} xl={4}>
+            <MenuItem key={id} {...groupProps} />
+          </Col>
+        );
+      })}
+    </Row>
+  );
+};
 
-    this.state = {
-      groups: [
-        {
-          title: "Barbells",
-          imageUrl: "https://i.ibb.co/FWpkFbn/barbells.jpg",
-          id: 1,
-          url: "barbells"
-        },
-        {
-          title: "Dumbbells",
-          imageUrl: "https://i.ibb.co/sKGkyxB/dumbbells.jpg",
-          id: 2,
-          url: ""
-        },
-        {
-          title: "Kettlebells",
-          imageUrl: "https://i.ibb.co/j3Dz9Q8/kettlebells.jpg",
-          id: 3,
-          url: ""
-        },
-        {
-          title: "Barbell plates",
-          imageUrl: "https://i.ibb.co/B3J1P2W/barbell-plates.jpg",
-          id: 4,
-          url: ""
-        },
-        {
-          title: "Exercise mats",
-          imageUrl: "https://i.ibb.co/r6nSCPy/exercise-mats.jpg",
-          id: 5,
-          url: ""
-        }
-      ]
-    };
-  }
-  render() {
-    return (
-      <Row className=" justify-content-around">
-        {this.state.groups.map(({ id, ...groupProps }) => {
-          return (
-            <Col key={id} md={6} xs={12} xl={4}>
-              <MenuItem key={id} {...groupProps} />
-            </Col>
-          );
-        })}
-      </Row>
-    );
-  }
-}
+const mapStateToPorps = createStructuredSelector({
+  groups: selectDisplayPanelGroup
+});
+
+export default connect(mapStateToPorps)(mainDisplayPanel);

@@ -4,6 +4,7 @@ import "./cart-mini.css";
 import { connect } from "react-redux";
 import CartItem from "../cart-item/cart-item";
 import { selectCartItems } from "../../redux/cart/cart.selectors";
+import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
 import { toggleCart } from "../../redux/cart/cart.actions";
 
@@ -34,6 +35,10 @@ export const CartMini = ({ itemsInCart, history, dispatch }) => {
     </div>
   );
 };
+
+const mapStateToProps = createStructuredSelector({
+  itemsInCart: selectCartItems
+});
 
 const mapStateToProps = state => {
   return {
