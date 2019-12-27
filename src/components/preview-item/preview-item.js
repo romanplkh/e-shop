@@ -13,7 +13,12 @@ const PreviewItem = ({ item, addItemToCart }) => {
       <Card.Img
         variant="top"
         src={imageUrl}
-        style={{ maxWidth: "70%", height: "250px", margin: "0 auto" }}
+        style={{
+          maxWidth: "70%",
+          height: "250px",
+          with: "250px",
+          margin: "0 auto"
+        }}
       />
       <Card.Body>
         <Card.Title>{name}</Card.Title>

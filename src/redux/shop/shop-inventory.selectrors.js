@@ -6,3 +6,14 @@ export const selectShopInventory = createSelector(
   [selectShop],
   shop => shop.inventory
 );
+
+export const selectGroupsPreview = createSelector(
+  [selectShopInventory],
+  inventory =>
+    Object.keys(inventory).map(
+      inventoryGroupKey => inventory[inventoryGroupKey]
+    )
+);
+
+export const selectGroup = groupId =>
+  createSelector([selectShopInventory], groups => groups[groupId]);

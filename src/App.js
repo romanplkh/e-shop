@@ -3,14 +3,12 @@ import "./App.css";
 import HomePage from "./pages/homepage/homepage";
 import CheckoutPage from "./pages/checkout/checkout";
 import { Route, Switch, Redirect } from "react-router-dom";
-import ShopPage from "./pages/shop/shop";
+import ShopPage from "./pages/shop/shoppage";
 import Navheader from "./components/nav-header/nav-header";
 import Auth from "./pages/auth/auth";
 import { firebaseAuth, addUserProfile } from "./firebase/firebase.helpers";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
-
-
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +29,6 @@ class App extends Component {
         if (user) {
           //TRY TO ADD USER PROFILE
           const userRef = await addUserProfile(user);
-
           //IF USER PROFILE ALREADY EXISTS --> POPULATE STATE WITH THIS DATA
           userRef.onSnapshot(snapshot => {
             setCurrentUser({

@@ -40,10 +40,10 @@ const mapStateToProps = createStructuredSelector({
   itemsInCart: selectCartItems
 });
 
-const mapStateToProps = state => {
-  return {
-    itemsInCart: selectCartItems(state)
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     itemsInCart: selectCartItems(state)
+//   };
+// };
 
 export default withRouter(connect(mapStateToProps)(CartMini));
