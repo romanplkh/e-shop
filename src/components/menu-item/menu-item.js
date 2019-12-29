@@ -13,7 +13,7 @@ const MenuItem = ({ title, imageUrl, history, url, match }) => {
     >
       <Card.Img
         src={imageUrl}
-        alt="Equipment"
+        alt="inventory"
         style={{ filter: "brightness(47%)", height: "370px" }}
       />
       <Card.ImgOverlay className="d-flex flex-column">

@@ -1,7 +1,7 @@
 import React from "react";
 import PreviewItem from "../../components/preview-item/preview-item";
 import { connect } from "react-redux";
-import { selectGroup } from "../../redux/shop/shop-inventory.selectrors";
+import { selectInventory } from "../../redux/shop/shop-inventory.selectrors";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -33,7 +33,7 @@ const GroupPage = ({ group }) => {
 
 //props of the component we wrap
 const mapStateToProps = (state, ownProps) => ({
-  group: selectGroup(ownProps.match.params.groupId)(state)
+  group: selectInventory(ownProps.match.params.groupId)(state)
 });
 
 export default connect(mapStateToProps)(GroupPage);

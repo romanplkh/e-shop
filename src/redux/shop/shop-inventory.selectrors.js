@@ -7,7 +7,7 @@ export const selectShopInventory = createSelector(
   shop => shop.inventory
 );
 
-export const selectGroupsPreview = createSelector(
+export const selectInventoryPreview = createSelector(
   [selectShopInventory],
   inventory =>
     inventory
@@ -17,7 +17,12 @@ export const selectGroupsPreview = createSelector(
       : []
 );
 
-export const selectGroup = groupId =>
+export const selectInventory = groupId =>
   createSelector([selectShopInventory], groups =>
     groups ? groups[groupId] : null
   );
+
+export const selectIsInventoryFetching = createSelector(
+  [selectShop],
+  shop => shop.isFetching
+);

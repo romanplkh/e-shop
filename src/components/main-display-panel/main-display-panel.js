@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectDisplayPanelGroup } from "../../redux/main-display-panel/main-display-panel.selectors";
 
-const mainDisplayPanel = ({ groups }) => {
+const MainDisplayPanel = ({ groups }) => {
   return (
     <Row className="justify-content-around ">
       {groups.map(({ id, ...groupProps }) => {
@@ -24,4 +24,4 @@ const mapStateToPorps = createStructuredSelector({
   groups: selectDisplayPanelGroup
 });
 
-export default connect(mapStateToPorps)(mainDisplayPanel);
+export default connect(mapStateToPorps)(MainDisplayPanel);
