@@ -7,8 +7,8 @@ import Col from "react-bootstrap/Col";
 
 const Auth = () => {
   return (
-    <Container>
-      <Row className="justify-content-around">
+    <Container className="pt-5">
+      <Row className="justify-content-around mt-5">
         <Col md={6}>
           <Login />
         </Col>

@@ -5,7 +5,6 @@ import { selectGroupsPreview } from "../../redux/shop/shop-inventory.selectrors"
 import PreviewList from "../preview-list/preview-list";
 
 const InventoryOverview = ({ inventory }) => {
-  console.log(inventory);
   // const inventoryData = [];
   // for (let key in inventory) {
   //   inventoryData.push(

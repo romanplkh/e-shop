@@ -1,13 +1,12 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import CustomButton from "../custom-button/custom-button";
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/cart/cart.actions";
 
 const PreviewItem = ({ item, addItemToCart }) => {
-  const { id, name, price, imageUrl } = item;
+  const { name, price, imageUrl } = item;
   return (
     <Card>
       <Card.Img

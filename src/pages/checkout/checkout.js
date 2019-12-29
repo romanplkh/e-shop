@@ -1,6 +1,5 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import { connect } from "react-redux";
@@ -15,7 +14,7 @@ import CheckoutButton from "../../components/checkout-button/checkout-button";
 export const CheckoutPage = ({ itemsInCart, total }) => {
   return (
     <Container className="mb-5">
-      <h1 className="display-4">Checkout Page</h1>
+      <h1 className="display-3 mt-5 text-center">Checkout Page</h1>
       <Row>
         <Table responsive>
           <thead>

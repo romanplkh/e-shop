@@ -9,10 +9,13 @@ import { connect } from "react-redux";
 
 const NavHeader = ({ currentUser, cartDisplay }) => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Link to="/" className="nav navbar-brand">
-        GYMBELLS &amp; GYMATS
-      </Link>
+    <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" fixed="top">
+      <Navbar.Brand>
+        <Link to="/" className="nav navbar-brand">
+          GYMBELLS &amp; GYMATS
+        </Link>
+      </Navbar.Brand>
+
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto"></Nav>
@@ -38,8 +41,8 @@ const NavHeader = ({ currentUser, cartDisplay }) => {
           )}
           <CartLabel />
         </Nav>
+        {cartDisplay && <CartMini />}
       </Navbar.Collapse>
-      {cartDisplay && <CartMini />}
     </Navbar>
   );
 };

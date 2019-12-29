@@ -59,7 +59,7 @@ const cartReducer = (state = intitalState, action) => {
         cartItem => cartItem.id === action.payload.id
       );
 
-      if (foundCartItem && foundCartItem.quantity == 1) {
+      if (foundCartItem && foundCartItem.quantity === 1) {
         newCart = oldCart.filter(item => item.id !== foundCartItem.id);
       } else {
         newCart = oldCart.map(item => {
@@ -79,7 +79,7 @@ const cartReducer = (state = intitalState, action) => {
         items: newCart
       };
     default:
-      return state ;
+      return state;
   }
 };
 

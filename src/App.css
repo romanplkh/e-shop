@@ -1,0 +1,7 @@
+body {
+  padding-top: 66px;
+}
+
+.app.app__main {
+  background: url("./grey_wash_wall.png");
+}

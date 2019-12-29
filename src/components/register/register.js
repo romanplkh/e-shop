@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import FormInput from "../form-input/form-input";
 import CustomButton from "../custom-button/custom-button";
 import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
 import Alert from "react-bootstrap/Alert";
 import { firebaseAuth, addUserProfile } from "../../firebase/firebase.helpers";
 

@@ -1,15 +1,14 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
 import { withRouter } from "react-router-dom";
-
 
 const MenuItem = ({ title, imageUrl, history, url, match }) => {
   return (
     /*  <div className="col-xl-6 col-lg-10 col-12"> */
     <Card
-      className="bg-dark text-white m-4 card-menue"
+      className="bg-dark text-white m-4 "
+      id="card-menue"
       onClick={() => history.push(`${match.url}${url}`)}
     >
       <Card.Img
@@ -34,7 +33,6 @@ const MenuItem = ({ title, imageUrl, history, url, match }) => {
         </Button>
       </Card.ImgOverlay>
     </Card>
-    /*     </div> */
   );
 };
 

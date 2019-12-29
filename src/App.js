@@ -27,7 +27,7 @@ class App extends Component {
     this.firebaseAuthSubscription = firebaseAuth.onAuthStateChanged(
       async user => {
         if (user) {
-          //TRY TO ADD USER PROFILE
+          //TRY TO ADD USER PROFILE TO DB
           const userRef = await addUserProfile(user);
           //IF USER PROFILE ALREADY EXISTS --> POPULATE STATE WITH THIS DATA
           userRef.onSnapshot(snapshot => {
@@ -37,7 +37,7 @@ class App extends Component {
             });
           });
         } else {
-          setCurrentUser(user);
+          setCurrentUser(user); //WILL BE NULL
         }
       }
     );
@@ -50,7 +50,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <Navheader />
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -75,8 +75,6 @@ const mapStateToProps = state => {
   };
 };
 
-//CREATE FUNCTION THAT WILL DISPATCH OBJECT {TYPE: SET_USER, PAYLOAD:User}
-//USE this function as property in component
 const mapDispatchToProps = dispatch => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user))
@@ -84,7 +82,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-//  <div className="App">
-//       <HomePage />
-//     </div>

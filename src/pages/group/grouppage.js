@@ -1,16 +1,16 @@
 import React from "react";
 import PreviewItem from "../../components/preview-item/preview-item";
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
 import { selectGroup } from "../../redux/shop/shop-inventory.selectrors";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 
 const GroupPage = ({ group }) => {
   const { title, items } = group;
   return (
-    <div className="p-4">
-      <h2>{title}</h2>
+    <Container fluid className="p-4 mt-5">
+      <h1 className="display-3">{title}</h1>
       <Row className="justify-content-md-start justify-content-sm-center">
         {items.map(item => {
           return (
@@ -27,7 +27,7 @@ const GroupPage = ({ group }) => {
           );
         })}
       </Row>
-    </div>
+    </Container>
   );
 };
 

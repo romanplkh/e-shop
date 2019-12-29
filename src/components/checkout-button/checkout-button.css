@@ -3,7 +3,7 @@ button.StripeCheckout {
   background: orange !important;
 }
 
-button span {
+button.StripeCheckout span {
   background: orange !important;
   background-image: orange !important;
   font-size: 1.2em !important;

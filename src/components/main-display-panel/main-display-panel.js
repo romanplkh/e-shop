@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import MenuItem from "../menu-item/menu-item";
@@ -8,7 +8,7 @@ import { selectDisplayPanelGroup } from "../../redux/main-display-panel/main-dis
 
 const mainDisplayPanel = ({ groups }) => {
   return (
-    <Row className=" justify-content-around">
+    <Row className="justify-content-around ">
       {groups.map(({ id, ...groupProps }) => {
         return (
           <Col key={id} md={6} xs={12} xl={4}>
