@@ -1,8 +1,8 @@
-import { inventory } from "./shop-inventory.mock-data";
+//import { inventory } from "./shop-inventory.mock-data";
 import { POPULATE_SHOP_WITH_INVENTORY } from "./shop.types";
 
 const initialState = {
-  inventory: inventory
+  inventory: null
 };
 
 const shopInventoryReducer = (state = initialState, action) => {

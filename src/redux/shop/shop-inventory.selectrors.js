@@ -10,10 +10,14 @@ export const selectShopInventory = createSelector(
 export const selectGroupsPreview = createSelector(
   [selectShopInventory],
   inventory =>
-    Object.keys(inventory).map(
-      inventoryGroupKey => inventory[inventoryGroupKey]
-    )
+    inventory
+      ? Object.keys(inventory).map(
+          inventoryGroupKey => inventory[inventoryGroupKey]
+        )
+      : []
 );
 
 export const selectGroup = groupId =>
-  createSelector([selectShopInventory], groups => groups[groupId]);
+  createSelector([selectShopInventory], groups =>
+    groups ? groups[groupId] : null
+  );

@@ -39,7 +39,8 @@ class App extends Component {
         } else {
           setCurrentUser(user); //WILL BE NULL
         }
-      }
+      },
+      err => console.log(err)
     );
   }
 
@@ -50,7 +51,7 @@ class App extends Component {
 
   render() {
     return (
-      <div >
+      <div>
         <Navheader />
         <Switch>
           <Route exact path="/" component={HomePage} />
