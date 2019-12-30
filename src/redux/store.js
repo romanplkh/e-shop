@@ -2,6 +2,8 @@ import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./root-reducer";
 import { persistStore } from "redux-persist";
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
+
 
 //SETUP MIDDLEWARE
 
