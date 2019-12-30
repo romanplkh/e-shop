@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-const GroupPage = ({ group }) => {
+const InventoryPage = ({ group }) => {
   const { title, items } = group;
   return (
     <Container fluid className="p-4 mt-5">
@@ -36,4 +36,4 @@ const mapStateToProps = (state, ownProps) => ({
   group: selectInventory(ownProps.match.params.groupId)(state)
 });
 
-export default connect(mapStateToProps)(GroupPage);
+export default connect(mapStateToProps)(InventoryPage);

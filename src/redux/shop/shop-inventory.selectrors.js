@@ -26,3 +26,8 @@ export const selectIsInventoryFetching = createSelector(
   [selectShop],
   shop => shop.isFetching
 );
+
+export const selectIsDataLoaded = createSelector(
+  [selectShop],
+  shop => !!shop.inventory
+);

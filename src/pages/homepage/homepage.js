@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import MainDisplayPanel from "../../components/main-display-panel/main-display-panel";
 import Slider from "../../components/slider/slider";
 
