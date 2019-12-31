@@ -1,4 +1,4 @@
-import { takeEvery, call, put, takeLatest } from "redux-saga/effects"; //listens for every type of action passed to it
+import { all, call, put, takeLatest } from "redux-saga/effects"; //listens for every type of action passed to it
 import { FETCH_INVENTORY_START } from "./shop.types";
 import {
   firestore,
@@ -28,4 +28,8 @@ export function* fetchInventoryStart() {
   //LISTEN FOR ACTION, CALL METHOD BASED ON THIS ACTION
   //CREATE NON BLOCKING WAY OF RUNNING APP, EVENT IF API OR DB TRIP IS LONG
   yield takeLatest(FETCH_INVENTORY_START, fetchInventoryAsync);
+}
+
+export function* shopSagas() {
+  yield all([call(fetchInventoryStart)]);
 }

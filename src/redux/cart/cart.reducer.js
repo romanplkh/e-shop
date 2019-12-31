@@ -2,7 +2,8 @@ import {
   CART_TOGGLER,
   ADD_ITEM_TO_CART,
   REMOVE_ITEMS_FROM_CART,
-  REMOVE_ITEM_FROM_CART
+  REMOVE_ITEM_FROM_CART,
+  RESET_CART
 } from "./cart.types";
 
 const intitalState = {
@@ -77,6 +78,12 @@ const cartReducer = (state = intitalState, action) => {
       return {
         ...state,
         items: newCart
+      };
+
+    case RESET_CART:
+      return {
+        ...state,
+        items: []
       };
     default:
       return state;

@@ -16,7 +16,9 @@ export const CartMini = ({ itemsInCart, history, dispatch }) => {
     });
   } else {
     itemsToDisplay = (
-      <h3 class="d-flex align-self-center my-auto text-muted">Cart is empty</h3>
+      <h3 className="d-flex align-self-center my-auto text-muted">
+        Cart is empty
+      </h3>
     );
   }
 

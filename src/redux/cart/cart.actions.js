@@ -2,7 +2,8 @@ import {
   CART_TOGGLER,
   ADD_ITEM_TO_CART,
   REMOVE_ITEMS_FROM_CART,
-  REMOVE_ITEM_FROM_CART
+  REMOVE_ITEM_FROM_CART,
+  RESET_CART
 } from "./cart.types";
 
 export const toggleCart = () => ({
@@ -22,4 +23,8 @@ export const removeItemsFromCart = item => ({
 export const removeItemFromCart = item => ({
   type: REMOVE_ITEM_FROM_CART,
   payload: item
+});
+
+export const resetCart = () => ({
+  type: RESET_CART
 });

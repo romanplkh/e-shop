@@ -1,35 +1,42 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import FormInput from "../form-input/form-input";
 import CustomButton from "../custom-button/custom-button";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
-import { firebaseAuth, addUserProfile } from "../../firebase/firebase.helpers";
+import { registerStart } from "../../redux/user/user.actions";
+import { connect } from "react-redux";
 
-export default class Register extends Component {
-  constructor() {
-    super();
+const Register = ({ dispatch }) => {
+  const [userCreds, setUserCreds] = useState({
+    displayName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    formIsValidated: false,
+    errorMessage: "",
+    showAlert: false
+  });
 
-    this.state = {
-      displayName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      formIsValidated: false,
-      errorMessage: "",
-      showAlert: false
-    };
-  }
+  const {
+    confirmPassword,
+    password,
+    email,
+    displayName,
+    formIsValidated,
+    errorMessage,
+    showAlert
+  } = userCreds;
 
-  submitHandler = async e => {
+  const submitHandler = async e => {
     e.preventDefault();
 
     const form = e.currentTarget;
-    this.setState({ formIsValidated: true });
 
-    const { confirmPassword, displayName, email, password } = this.state;
+    setUserCreds({ ...userCreds, formIsValidated: true });
 
     if (password !== confirmPassword) {
-      this.setState({
+      setUserCreds({
+        ...userCreds,
         errorMessage: "Passwords do not match",
         showAlert: true
       });
@@ -40,108 +47,81 @@ export default class Register extends Component {
       return;
     }
 
-    try {
-      const { user } = await firebaseAuth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      await addUserProfile(user, { displayName });
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        formIsValidated: false,
-        errorMessage: ""
-      });
-
-      //!TODO: REDIRECT TO SHOP
-    } catch (error) {
-      console.log(error.message);
-    }
+    dispatch(registerStart({ email, password, displayName }));
   };
 
-  inputHandler = ({ target: { value, name } }) => {
-    this.setState({ [name]: value });
+  const inputHandler = ({ target: { value, name } }) => {
+    setUserCreds({ ...userCreds, [name]: value });
   };
-  render() {
-    const {
-      confirmPassword,
-      displayName,
-      email,
-      password,
-      formIsValidated,
-      errorMessage,
-      showAlert
-    } = this.state;
-    return (
-      <div className="mt-5">
-        <h3>Do not have an account?</h3>
-        <small>Register with email and password</small>
-        {showAlert && (
-          <Alert
-            variant="danger"
-            onClose={() => this.setState({ showAlert: false })}
-            dismissible
-          >
-            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-            <p>{errorMessage}</p>
-          </Alert>
-        )}
-        <Form
-          onSubmit={this.submitHandler}
-          className="mt-5"
-          validated={formIsValidated}
-          noValidate
+
+  return (
+    <div className="mt-5">
+      <h3>Do not have an account?</h3>
+      <small>Register with email and password</small>
+      {showAlert && (
+        <Alert
+          variant="danger"
+          onClose={() => setUserCreds({ ...userCreds, showAlert: false })}
+          dismissible
         >
-          <FormInput
-            type="text"
-            name="displayName"
-            label="Name"
-            value={displayName}
-            placeholder="Your Name"
-            inputHandler={this.inputHandler}
-            validationMsg="Name is required"
-            required
-          ></FormInput>
-          <FormInput
-            type="email"
-            name="email"
-            label="Email"
-            value={email}
-            placeholder="Enter email"
-            inputHandler={this.inputHandler}
-            validationMsg="Email is invalid"
-            required
-          ></FormInput>
+          <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+          <p>{errorMessage}</p>
+        </Alert>
+      )}
+      <Form
+        onSubmit={submitHandler}
+        className="mt-5"
+        validated={formIsValidated}
+        noValidate
+      >
+        <FormInput
+          type="text"
+          name="displayName"
+          label="Name"
+          value={displayName}
+          placeholder="Your Name"
+          inputHandler={inputHandler}
+          validationMsg="Name is required"
+          required
+        ></FormInput>
+        <FormInput
+          type="email"
+          name="email"
+          label="Email"
+          value={email}
+          placeholder="Enter email"
+          inputHandler={inputHandler}
+          validationMsg="Email is invalid"
+          required
+        ></FormInput>
 
-          <FormInput
-            type="password"
-            name="password"
-            value={password}
-            placeholder="Password"
-            label="Password"
-            inputHandler={this.inputHandler}
-            validationMsg="Password is required"
-            required
-          ></FormInput>
+        <FormInput
+          type="password"
+          name="password"
+          value={password}
+          placeholder="Password"
+          label="Password"
+          inputHandler={inputHandler}
+          validationMsg="Password is required"
+          required
+        ></FormInput>
 
-          <FormInput
-            type="password"
-            name="confirmPassword"
-            value={confirmPassword}
-            placeholder="Confirm Password"
-            label="Confirm Password"
-            inputHandler={this.inputHandler}
-            validationMsg="Confirm password is required"
-            required
-          ></FormInput>
-          <CustomButton variant="warning" type="submit" className="float-right">
-            Register
-          </CustomButton>
-        </Form>
-      </div>
-    );
-  }
-}
+        <FormInput
+          type="password"
+          name="confirmPassword"
+          value={confirmPassword}
+          placeholder="Confirm Password"
+          label="Confirm Password"
+          inputHandler={inputHandler}
+          validationMsg="Confirm password is required"
+          required
+        ></FormInput>
+        <CustomButton variant="warning" type="submit" className="float-right">
+          Register
+        </CustomButton>
+      </Form>
+    </div>
+  );
+};
+
+export default connect(null)(Register);

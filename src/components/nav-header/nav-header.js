@@ -4,10 +4,12 @@ import Nav from "react-bootstrap/Nav";
 import CartLabel from "../cart-label/cart-label";
 import CartMini from "../cart-mini/cart-mini";
 import { Link } from "react-router-dom";
-import { firebaseAuth } from "../../firebase/firebase.helpers";
 import { connect } from "react-redux";
+import { logOutStart } from "../../redux/user/user.actions";
 
-const NavHeader = ({ currentUser, cartDisplay }) => {
+const NavHeader = ({ currentUser, cartDisplay, ...otherProps }) => {
+  const { dispatch } = otherProps;
+
   return (
     <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" fixed="top">
       <Navbar.Brand>
@@ -30,7 +32,7 @@ const NavHeader = ({ currentUser, cartDisplay }) => {
             <div
               className="nav-link"
               style={{ cursor: "pointer" }}
-              onClick={() => firebaseAuth.signOut()}
+              onClick={() => dispatch(logOutStart())}
             >
               LOG OUT
             </div>
