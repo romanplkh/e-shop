@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest } from "redux-saga/effects"; //listens for every type of action passed to it
+import { all, call, put, takeLatest } from "redux-saga/effects";
 import { FETCH_INVENTORY_START } from "./shop.types";
 import {
   firestore,

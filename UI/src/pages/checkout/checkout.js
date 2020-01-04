@@ -46,8 +46,8 @@ export const CheckoutPage = ({ itemsInCart, total }) => {
           following credentials
         </p>
         <p>CC: 4242 4242 4242 4242 </p>
+        <p>MM/YYYY: Any future date</p>
         <p>CVV: Any 3 digits </p>
-        <p>EXP: Any future date</p>
       </div>
     </Container>
   );
