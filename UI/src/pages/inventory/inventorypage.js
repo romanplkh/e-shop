@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import PreviewItem from "../../components/preview-item/preview-item";
 import { connect } from "react-redux";
 import { selectInventory } from "../../redux/shop/shop-inventory.selectrors";
@@ -7,20 +7,6 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 const InventoryPage = ({ group }) => {
-
-  useEffect(() =>{
-
-
-
-    //CLEAN UP FUNCTION 
-    //IS CALLDED WHEN COMPONENT UNMOUNTS
-    return () => {
-      console.log("UNSUBSCRIBING....")
-      someSubscription();
-    }
-  })
-
-
   const { title, items } = group;
   return (
     <Container fluid className="p-4 mt-5">
