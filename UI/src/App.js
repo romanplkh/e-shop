@@ -9,11 +9,12 @@ import ErrorBoundary from "./components/error-boundary/error-boundary";
 import Auth from "./pages/auth/auth";
 import { connect } from "react-redux";
 import { checkUserSession } from "./redux/user/user.actions";
+import { Footer } from "./components/footer/footer";
 
 const App = ({ dispatch, currentUser }) => {
   useEffect(() => {
     dispatch(checkUserSession());
-  }, [checkUserSession]);
+  }, [dispatch]);
 
   return (
     <div>
@@ -30,6 +31,7 @@ const App = ({ dispatch, currentUser }) => {
           />
         </ErrorBoundary>
       </Switch>
+      <Footer />
     </div>
   );
 };

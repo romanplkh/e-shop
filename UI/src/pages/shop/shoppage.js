@@ -8,7 +8,7 @@ import InventoryPageContainer from "../inventory/intentory.container";
 const ShopPage = ({ dispatch, match }) => {
   useEffect(() => {
     dispatch(fetchInventoryStart());
-  }, [fetchInventoryStart]);
+  }, [dispatch]);
 
   return (
     <React.Fragment>

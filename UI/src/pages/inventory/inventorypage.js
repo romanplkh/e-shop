@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PreviewItem from "../../components/preview-item/preview-item";
 import { connect } from "react-redux";
 import { selectInventory } from "../../redux/shop/shop-inventory.selectrors";

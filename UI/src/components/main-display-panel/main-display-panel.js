@@ -8,7 +8,7 @@ import { selectDisplayPanelGroup } from "../../redux/main-display-panel/main-dis
 
 const MainDisplayPanel = ({ groups }) => {
   return (
-    <Row className="justify-content-around ">
+    <Row className="justify-content-around m-0">
       {groups.map(({ id, ...groupProps }) => {
         return (
           <Col key={id} md={6} xs={12} xl={4}>
