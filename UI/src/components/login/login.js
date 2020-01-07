@@ -23,10 +23,10 @@ const Login = ({ dispatch }) => {
 
   const { email, password } = userCreds;
   return (
-    <div className="mt-5">
+    <div>
       <h3>Already have account with us?</h3>
       <small>Login with your email and password</small>
-      <Form onSubmit={submitHandler} className="mt-5">
+      <Form onSubmit={submitHandler}>
         <FormInput
           type="email"
           name="email"
@@ -47,8 +47,8 @@ const Login = ({ dispatch }) => {
           required
         ></FormInput>
 
-        <Row className="justify-content-around align-items-start">
-          <CustomButton variant="warning" type="submit" className="float-right">
+        <Row className="justify-content-end align-items-start">
+          <CustomButton variant="warning" type="submit" className="mr-3">
             Log In
           </CustomButton>
           <div>
@@ -56,11 +56,12 @@ const Login = ({ dispatch }) => {
               variant="danger"
               onClick={() => dispatch(googleLoginStart())}
               type="button"
+              className="mr-3"
             >
               Log In with Google
             </CustomButton>
             <small className="d-block text-muted">
-              3rd part cookie must be enabled
+              3rd part cookie required
             </small>
           </div>
         </Row>

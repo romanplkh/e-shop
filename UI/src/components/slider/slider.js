@@ -8,6 +8,8 @@ const Slider = () => {
       indicators={false}
       interval={3500}
       controls={false}
+      pauseOnHover={false}
+      touch={true}
       className="d-none d-sm-block"
     >
       <Carousel.Item>

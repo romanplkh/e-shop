@@ -55,7 +55,7 @@ const Register = ({ dispatch }) => {
   };
 
   return (
-    <div className="mt-5">
+    <div>
       <h3>Do not have an account?</h3>
       <small>Register with email and password</small>
       {showAlert && (
@@ -68,12 +68,7 @@ const Register = ({ dispatch }) => {
           <p>{errorMessage}</p>
         </Alert>
       )}
-      <Form
-        onSubmit={submitHandler}
-        className="mt-5"
-        validated={formIsValidated}
-        noValidate
-      >
+      <Form onSubmit={submitHandler} validated={formIsValidated} noValidate>
         <FormInput
           type="text"
           name="displayName"

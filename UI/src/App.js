@@ -17,22 +17,24 @@ const App = ({ dispatch, currentUser }) => {
   }, [dispatch]);
 
   return (
-    <div>
+    <React.Fragment>
       <Navheader />
       <Switch>
         <ErrorBoundary>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route exact path="/checkout" component={CheckoutPage} />
-          <Route
-            exact
-            path="/signin"
-            render={() => (currentUser ? <Redirect to="/" /> : <Auth />)}
-          />
+          <div className="filler">
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route
+              exact
+              path="/signin"
+              render={() => (currentUser ? <Redirect to="/" /> : <Auth />)}
+            />
+          </div>
         </ErrorBoundary>
       </Switch>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 };
 
