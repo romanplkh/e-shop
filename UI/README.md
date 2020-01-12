@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GYMBELLS & GYMATS
 
-## Available Scripts
+E-commerce app for sports goods
 
-In the project directory, you can run:
+### Live version of application is available [here](https://gg-shop.herokuapp.com)
 
-### `npm start`
+# Description
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+React.js e-commerce application features various sports goods and allows to buy them.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Simple Node.js server is implemented for payment processing
 
-### `npm test`
+**IMPORTANT**: All sproting items featured in application are used for demonstration purposes only. They are not real and not for selling!!! Please **do not provide real information about your credit card**, because you will be charged. Instead, use mock information provided at checkout page to test payement system.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This application tries to abstract from any brands and companies that produce sporting goods. If author fetures some images with real, existing brands it does NOT mean that author promotes them or has any relationships to them.
 
-### `npm run build`
+# Installation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+    npm install
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    npm run dev - Runs application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    npm run client - Runs only React.js
+    npm run server - Runs only Node.js server
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Usage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Fork and clone application or download ZIP
+- Obtain Firebase configuration and replace it in `UI/src/firebase/firebase.helpers.js`
+  ```javascript
+  const firebaseConfig = {
+    apiKey: `YOUR_FIREBASE_API_KEY`,
+    authDomain: "YOUR_FIREBASE_DOMAIN",
+    databaseURL: "YOUR_FIREBASE URL",
+    projectId: "YOUR_FIREBASE_PROJECT_ID",
+    storageBucket: "YOUR_FIREBASE_STORAGE_BUCKET",
+    messagingSenderId: "XXXXXXXXXX",
+    appId: `YOUR_APP_ID`,
+    measurementId: "XXXXX"
+  };
+  ```
+- Install dependencies
+- Run application
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# License:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright © by Roman Pelikh. You are 100% allowed to use this application for both personal or commercial use, but NOT to claim it as your own project. A credit to the original author, Roman Pelikh, is of course highly appreciated!
