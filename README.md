@@ -12,6 +12,8 @@ Simple Node.js server is implemented for payment processing
 
 **IMPORTANT**: All sporting items featured in application are used for demonstration purposes only. They are not real and not for selling!!! Please **do not provide real information about your credit card**, because you will be charged. Instead, use mock information provided at checkout page to test payment system.
 
+**NOTE**: firebase.helpers.js was deleted since it contained a history of API Keys..
+
 This application tries to abstract from any brands and companies that produce sporting goods. If author fetures some images with real, existing brands it does NOT mean that author promotes them or has any relationships to them.
 
 # Installation
